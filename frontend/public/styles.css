@@ -1,0 +1,542 @@
+/* ============================================
+   SISTEMA DE FILA - ESTILOS
+   Design limpo e funcional para clínica/hospital
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Cabeçalho */
+header {
+  background: linear-gradient(135deg, #2c7a7b 0%, #285e61 100%);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+header p {
+  opacity: 0.9;
+  font-size: 0.95rem;
+  margin-top: 5px;
+}
+
+/* Cards/Seções */
+.section {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.section h2 {
+  color: #2c7a7b;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+/* Formulário */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #2c7a7b;
+  box-shadow: 0 0 0 3px rgba(44, 122, 123, 0.1);
+}
+
+/* Botão Sair */
+.btn-sair {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-sair:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-sair-visor {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.btn-sair-visor:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Botões */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: #2c7a7b;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #285e61;
+}
+
+.btn-success {
+  background: #38a169;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #2f855a;
+}
+
+.btn-warning {
+  background: #dd6b20;
+  color: white;
+}
+
+.btn-warning:hover {
+  background: #c05621;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.form-actions {
+  margin-top: 20px;
+}
+
+/* Tabelas */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+  background: #f7fafc;
+  color: #4a5568;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+tr:hover {
+  background: #f7fafc;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-preferencial {
+  background: #fed7d7;
+  color: #c53030;
+}
+
+.badge-normal {
+  background: #c6f6d5;
+  color: #276749;
+}
+
+.badge-aguardando {
+  background: #fefcbf;
+  color: #975a16;
+}
+
+.badge-em-atendimento {
+  background: #bee3f8;
+  color: #2b6cb0;
+}
+
+.badge-finalizado {
+  background: #e2e8f0;
+  color: #4a5568;
+}
+
+/* Ações na tabela */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Mensagens de erro/sucesso */
+.message {
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+.message-error {
+  background: #fed7d7;
+  color: #c53030;
+  border: 1px solid #feb2b2;
+}
+
+.message-success {
+  background: #c6f6d5;
+  color: #276749;
+  border: 1px solid #9ae6b4;
+}
+
+/* Lista vazia */
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #a0aec0;
+}
+
+.empty-state p {
+  font-size: 1rem;
+}
+
+/* ============================================
+   VISOR (Tela do Paciente/Público)
+   ============================================ */
+
+.visor-container {
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(180deg, #1a365d 0%, #2c5282 100%);
+}
+
+.visor-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.visor-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.visor-header p {
+  opacity: 0.8;
+  margin-top: 5px;
+}
+
+/* Painel de chamada central */
+.chamada-atual {
+  background: white;
+  border-radius: 16px;
+  padding: 60px 40px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.chamada-atual.vazio {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.chamada-atual .senha {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #2c7a7b;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.chamada-atual.vazio .senha {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 3rem;
+}
+
+.chamada-atual .nome {
+  font-size: 2rem;
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.chamada-atual.vazio .nome {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.2rem;
+}
+
+.chamada-atual .label {
+  font-size: 0.9rem;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.chamada-atual.vazio .label {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Grid do visor */
+.visor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .visor-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.visor-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.visor-section h3 {
+  color: #2c7a7b;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.visor-list {
+  list-style: none;
+}
+
+.visor-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.visor-list li:last-child {
+  border-bottom: none;
+}
+
+.visor-list .nome-visor {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.visor-list .senha-visor {
+  background: #2c7a7b;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #a0aec0;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+  
+  header h1 {
+    font-size: 1.4rem;
+  }
+  
+  .section {
+    padding: 16px;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chamada-atual {
+    padding: 40px 20px;
+  }
+  
+  .chamada-atual .senha {
+    font-size: 3.5rem;
+  }
+  
+  .chamada-atual .nome {
+    font-size: 1.5rem;
+  }
+}
+
+.sub-visor {
+  font-size: 0.75rem;
+  opacity: 0.75;
+  margin-top: 4px;
+  color: #4a5568;
+}
+
+/* ============================================
+   FIX VISOR: 3 caixas iguais lado a lado
+   cole no FINAL do styles.css
+   ============================================ */
+
+/* Grid com 3 colunas iguais */
+.visor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* Deixa as caixas com mesma altura e estrutura */
+.visor-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+}
+
+/* Lista com scroll interno (não estoura o card) */
+.visor-list {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 0;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* Garante que não apareça bolinha/bullet */
+.visor-list li {
+  list-style: none !important;
+}
+
+/* Mantém o layout dos itens */
+.visor-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.visor-list li:last-child {
+  border-bottom: none;
+}
+
+/* Scrollbar bonita */
+.visor-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.visor-list::-webkit-scrollbar-thumb {
+  background: rgba(44, 122, 123, 0.35);
+  border-radius: 8px;
+}
+
+.visor-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+/* Responsivo: 2 colunas no tablet, 1 no celular */
+@media (max-width: 1200px) {
+  .visor-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  .visor-grid {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+  }
+}
+
+
+

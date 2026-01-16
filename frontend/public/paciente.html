@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Minha Fila</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="patient-page">
+    <a class="btn-sair" href="login.html" onclick="localStorage.removeItem('patientId')">← Sair</a>
+
+    <div class="patient-card">
+      <div class="label" id="statusLabel">Carregando...</div>
+      <div class="senha" id="senha">---</div>
+      <div class="nome" id="nome">---</div>
+
+      <div class="infos">
+        <div><strong>Tempo na fila:</strong> <span id="tempo">--</span> min</div>
+        <div><strong>Pessoas na frente:</strong> <span id="frente">--</span></div>
+        <div><strong>Previsão:</strong> <span id="previsao">--</span> min</div>
+      </div>
+
+      <div id="msg" class="msg"></div>
+    </div>
+  </div>
+
+  <script src="paciente.js"></script>
+</body>
+</html>

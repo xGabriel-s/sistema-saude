@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Acompanhar minha fila</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-card">
+      <h2>Acesso do Paciente</h2>
+      <p>Digite seu CPF para acompanhar sua fila</p>
+
+      <form id="form-paciente">
+        <label>CPF</label>
+        <input id="cpf" type="text" placeholder="000.000.000-00" required />
+        <button type="submit">Entrar</button>
+      </form>
+
+      <div id="msg" class="msg"></div>
+
+      <a class="link" href="login.html">Voltar</a>
+    </div>
+  </div>
+
+  <script src="paciente.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Fila - Visor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="visor-container">
+    <!-- Cabeçalho do Visor -->
+    <header class="visor-header" style="position: relative;">
+      <a href="login.html" class="btn-sair btn-sair-visor">← Sair</a>
+      <h1>🏥 Painel de Chamadas</h1>
+      <p>Aguarde seu nome ser chamado</p>
+    </header>
+
+    <!-- Painel Central - Paciente Atual -->
+    <div id="chamada-atual" class="chamada-atual vazio">
+      <div class="label">Aguardando</div>
+      <div class="senha">---</div>
+      <div class="nome">Nenhum paciente em atendimento</div>
+    </div>
+
+    <!-- Grid com Fila e Histórico -->
+    <div class="visor-grid">
+      <!-- Lista de Aguardando -->
+      <section class="visor-section">
+        <h3>⏳ Aguardando Atendimento</h3>
+        <ul id="visor-fila" class="visor-list">
+          <li class="loading">Carregando...</li>
+        </ul>
+      </section>
+
+      <!-- Histórico Recente -->
+      <section class="visor-section">
+        <h3>📣 Chamados Recentemente</h3>
+        <ul id="visor-historico" class="visor-list">
+          <li class="loading">Carregando...</li>
+        </ul>
+      </section>
+
+      <section class="visor-section">
+        <h3>✅ Atendimentos finalizados</h3>
+        <ul id="visor-finalizados" class="visor-list">
+          <li class="loading">Carregando...</li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
