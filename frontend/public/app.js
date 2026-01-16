@@ -340,13 +340,13 @@ async function atualizarVisor() {
 function renderizarVisor(dados) {
   const chamadaContainer = document.getElementById("chamada-atual");
 
-  const filaLista = document.getElementById("visor-fila");                // aguardando
-  const chamadosLista = document.getElementById("visor-chamados");        // chamados recentemente
-  const finalizadosLista = document.getElementById("visor-finalizados");  // finalizados
+  const filaLista = document.getElementById("visor-fila");
+  const chamadosLista = document.getElementById("visor-historico"); // chamados recentes
+  const finalizadosLista = document.getElementById("visor-finalizados");
 
-  // -------------------------
-  // CENTRAL: paciente atual
-  // -------------------------
+  // =========================
+  // CHAMADA ATUAL (CENTRO)
+  // =========================
   if (chamadaContainer) {
     if (dados.pacienteAtual && dados.pacienteAtual.nome) {
       chamadaContainer.className = "chamada-atual";
@@ -360,70 +360,63 @@ function renderizarVisor(dados) {
     }
   }
 
-  // -------------------------
-  // AGUARDANDO (listaStatus)
-  // -------------------------
-  if (filaLista && dados.listaStatus) {
-    const maxItens = 4; // só 4 nomes
-    const lista = (dados.listaStatus || []).slice(0, maxItens);
+  // =========================
+  // AGUARDANDO ATENDIMENTO
+  // =========================
+  if (filaLista) {
+    const lista = (dados.listaStatus || []).slice(0, 4);
 
-    if (lista.length === 0) {
-      filaLista.innerHTML = `<li class="empty-state"><p>Nenhum paciente aguardando</p></li>`;
-    } else {
-      filaLista.innerHTML = lista.map(p => `
-        <li>
-          <div>
-            <div class="nome-visor">${p.nome || "-"}</div>
-            <div class="sub-visor">Aguardando: ${p.aguardandoMin ?? 0} min • Previsão: ${p.previsaoMin ?? 0} min</div>
-          </div>
-          <span class="senha-visor">${p.senha || "-"}</span>
-        </li>
-      `).join("");
-    }
+    filaLista.innerHTML = lista.length === 0
+      ? `<li class="empty-state"><p>Nenhum paciente aguardando</p></li>`
+      : lista.map(p => `
+          <li>
+            <div>
+              <div class="nome-visor">${p.nome}</div>
+              <div class="sub-visor">
+                Aguardando ${p.aguardandoMin} min • Previsão ${p.previsaoMin} min
+              </div>
+            </div>
+            <span class="senha-visor">${p.senha}</span>
+          </li>
+        `).join("");
   }
 
-  // -------------------------
-  // CHAMADOS RECENTES
-  // (vem do backend em dados.chamadosRecentes)
-  // -------------------------
+  // =========================
+  // CHAMADOS RECENTEMENTE
+  // =========================
   if (chamadosLista) {
-    const maxItens = 4;
-    const lista = (dados.chamadosRecentes || []).slice(0, maxItens);
+    const lista = (dados.chamadosRecentes || []).slice(0, 4);
 
-    if (lista.length === 0) {
-      chamadosLista.innerHTML = `<li class="empty-state"><p>Nenhum chamado recente</p></li>`;
-    } else {
-      chamadosLista.innerHTML = lista.map(p => `
-        <li>
-          <div>
-            <div class="nome-visor">${p.nome || "-"}</div>
-            <div class="sub-visor">Chamado há ${p.tempo ?? 0} min</div>
-          </div>
-          <span class="senha-visor">${p.senha || "-"}</span>
-        </li>
-      `).join("");
-    }
+    chamadosLista.innerHTML = lista.length === 0
+      ? `<li class="empty-state"><p>Nenhum chamado recente</p></li>`
+      : lista.map(p => `
+          <li>
+            <div>
+              <div class="nome-visor">${p.nome}</div>
+              <div class="sub-visor">Chamado há ${p.tempo} min</div>
+            </div>
+            <span class="senha-visor">${p.senha}</span>
+          </li>
+        `).join("");
   }
 
-  // -------------------------
-  // FINALIZADOS (vem do histórico)
-  // -------------------------
+  // =========================
+  // FINALIZADOS
+  // =========================
   if (finalizadosLista) {
-    const maxItens = 5;
-    const lista = (dados.finalizados || []).slice(0, maxItens);
+    const lista = (dados.finalizados || []).slice(0, 5);
 
-    if (lista.length === 0) {
-      finalizadosLista.innerHTML = `<li class="empty-state"><p>Nenhum atendimento finalizado</p></li>`;
-    } else {
-      finalizadosLista.innerHTML = lista.map(p => `
-        <li>
-          <span class="nome-visor">${p.nome || "-"}</span>
-          <span class="senha-visor">${p.senha || "-"}</span>
-        </li>
-      `).join("");
-    }
+    finalizadosLista.innerHTML = lista.length === 0
+      ? `<li class="empty-state"><p>Nenhum atendimento finalizado</p></li>`
+      : lista.map(p => `
+          <li>
+            <span class="nome-visor">${p.nome}</span>
+            <span class="senha-visor">${p.senha}</span>
+          </li>
+        `).join("");
   }
 }
+
 
 
 function renderizarVisorVazio() {
